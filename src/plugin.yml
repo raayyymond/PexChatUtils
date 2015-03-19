@@ -1,0 +1,15 @@
+name: PexChatUtils
+main: me.raydond123.pexchatutils.PexChatUtils
+author: Raydond123
+version: 1.0
+depend: [Vault, PermissionsEx]
+commands:
+   prefix:
+      description: Allows you to change prefix's.
+   suffix:
+      description: Allows you to change suffix's.
+permissions:
+   pexchatutils.prefix:
+      description: Permission for /prefix.
+   pexchatutils.suffix:
+      description: Permission for /suffix.
