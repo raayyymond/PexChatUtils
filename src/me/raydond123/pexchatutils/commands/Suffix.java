@@ -30,8 +30,17 @@ public class Suffix implements CommandExecutor {
                 if(player.hasPermission("pexchatutils.suffix")) {
 
                     String suffix = args[0];
-                    plugin.chat.setPlayerPrefix(player, suffix);
-                    player.sendMessage(ChatColor.BLUE + "[" + ChatColor.LIGHT_PURPLE + "PexChatUtils" + ChatColor.BLUE + "] " + ChatColor.LIGHT_PURPLE + "Your suffix has been changed to " + ChatColor.translateAlternateColorCodes('&', suffix) + ChatColor.LIGHT_PURPLE + ".");
+
+                    if(!plugin.wordChecker.wordIsBanned(suffix)) {
+
+                        plugin.chat.setPlayerSuffix(player, suffix);
+                        player.sendMessage(ChatColor.BLUE + "[" + ChatColor.LIGHT_PURPLE + "PexChatUtils" + ChatColor.BLUE + "] " + ChatColor.LIGHT_PURPLE + "Your suffix has been changed to " + ChatColor.translateAlternateColorCodes('&', suffix) + ChatColor.LIGHT_PURPLE + ".");
+
+                    } else {
+
+                        player.sendMessage(ChatColor.BLUE + "[" + ChatColor.LIGHT_PURPLE + "PexChatUtils" + ChatColor.BLUE + "] " + ChatColor.LIGHT_PURPLE + "A word in that suffix is banned!");
+
+                    }
 
                 } else {
 
@@ -50,7 +59,7 @@ public class Suffix implements CommandExecutor {
 
                     if(otherPlayer1 != null) {
 
-                        plugin.chat.setPlayerPrefix(otherPlayer1, suffix);
+                        plugin.chat.setPlayerSuffix(otherPlayer1, suffix);
                         player.sendMessage(ChatColor.BLUE + "[" + ChatColor.LIGHT_PURPLE + "PexChatUtils" + ChatColor.BLUE + "] " + ChatColor.LIGHT_PURPLE + otherPlayer + "'s suffix has been changed to " + ChatColor.translateAlternateColorCodes('&', suffix) + ChatColor.LIGHT_PURPLE + ".");
 
                     } else {

@@ -34,9 +34,17 @@ public class Prefix implements CommandExecutor {
                 if(player.hasPermission("pexchatutils.prefix")) {
 
                     String prefix = args[0];
-                    plugin.chat.setPlayerPrefix(player, prefix);
-                    player.sendMessage(ChatColor.BLUE + "[" + ChatColor.LIGHT_PURPLE + "PexChatUtils" + ChatColor.BLUE + "] " + ChatColor.LIGHT_PURPLE + "Your prefix has been changed to " + ChatColor.translateAlternateColorCodes('&', prefix) + ChatColor.LIGHT_PURPLE + ".");
 
+                    if(!plugin.wordChecker.wordIsBanned(prefix)) {
+
+                        plugin.chat.setPlayerSuffix(player, prefix);
+                        player.sendMessage(ChatColor.BLUE + "[" + ChatColor.LIGHT_PURPLE + "PexChatUtils" + ChatColor.BLUE + "] " + ChatColor.LIGHT_PURPLE + "Your prefix has been changed to " + ChatColor.translateAlternateColorCodes('&', prefix) + ChatColor.LIGHT_PURPLE + ".");
+
+                    } else {
+
+                        player.sendMessage(ChatColor.BLUE + "[" + ChatColor.LIGHT_PURPLE + "PexChatUtils" + ChatColor.BLUE + "] " + ChatColor.LIGHT_PURPLE + "A word in that prefix is banned!");
+
+                    }
                 } else {
 
                     player.sendMessage(ChatColor.BLUE + "[" + ChatColor.LIGHT_PURPLE + "PexChatUtils" + ChatColor.BLUE + "] " + ChatColor.LIGHT_PURPLE + "You do not have permission to run this command!");
