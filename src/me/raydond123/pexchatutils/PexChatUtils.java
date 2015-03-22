@@ -2,6 +2,7 @@ package me.raydond123.pexchatutils;
 
 import me.raydond123.pexchatutils.commands.Prefix;
 import me.raydond123.pexchatutils.commands.Suffix;
+import me.raydond123.pexchatutils.commands.SuffixPrefixRemove;
 import me.raydond123.pexchatutils.utils.WordChecker;
 import net.milkbowl.vault.chat.Chat;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -19,6 +20,7 @@ public class PexChatUtils extends JavaPlugin {
 
     Prefix prefix;
     Suffix suffix;
+    SuffixPrefixRemove suffixPrefixRemove;
     public WordChecker wordChecker;
 
     File wordsFile;
@@ -32,7 +34,11 @@ public class PexChatUtils extends JavaPlugin {
 
         prefix = new Prefix(this);
         suffix = new Suffix(this);
+        suffixPrefixRemove = new SuffixPrefixRemove(this);
         wordChecker = new WordChecker(this);
+
+        getCommand("removeprefix").setExecutor(suffixPrefixRemove);
+        getCommand("removesuffix").setExecutor(suffixPrefixRemove);
 
         getCommand("prefix").setExecutor(prefix);
         getCommand("suffix").setExecutor(suffix);

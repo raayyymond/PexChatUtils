@@ -1,15 +1,23 @@
 name: PexChatUtils
 main: me.raydond123.pexchatutils.PexChatUtils
 author: Raydond123
-version: 1.1
+version: 1.5
 depend: [Vault, PermissionsEx]
 commands:
    prefix:
       description: Allows you to change prefix's.
    suffix:
       description: Allows you to change suffix's.
+   removeprefix:
+      description: Allows you to remove prefix's.
+   removesuffix:
+      description: Allows you to remove suffix's.
 permissions:
    pexchatutils.prefix:
       description: Permission for /prefix.
    pexchatutils.suffix:
       description: Permission for /suffix.
+   pexchatutils.removeprefix:
+      description: Permission for /removeprefix.
+   pexchatutils.removesuffix:
+      description: Permission for /removesuffix.

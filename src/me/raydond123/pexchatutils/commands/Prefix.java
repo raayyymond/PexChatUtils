@@ -37,7 +37,7 @@ public class Prefix implements CommandExecutor {
 
                     if(!plugin.wordChecker.wordIsBanned(prefix)) {
 
-                        plugin.chat.setPlayerSuffix(player, prefix);
+                        plugin.chat.setPlayerPrefix(player, prefix);
                         player.sendMessage(ChatColor.BLUE + "[" + ChatColor.LIGHT_PURPLE + "PexChatUtils" + ChatColor.BLUE + "] " + ChatColor.LIGHT_PURPLE + "Your prefix has been changed to " + ChatColor.translateAlternateColorCodes('&', prefix) + ChatColor.LIGHT_PURPLE + ".");
 
                     } else {
